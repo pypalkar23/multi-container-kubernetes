@@ -1,0 +1,21 @@
+gcloud config set project multi-k8s-250011
+gcloud config set compute/zone asia-south1-a
+gcloud container cluster get-credentials multi-k8s
+gcloud container clusters get-credentials multi-k8s
+history
+gcloud container clusters get-credentials multi-cluster
+gcloud config set compute/zone asia-south1-a
+gcloud container clusters get-credentials multi-cluster
+kubectl get pods
+kubectl get secret generic pgpassword --from-literal PGPASSWORD=postgres
+kubectl create secret generic pgpassword --from-literal PGPASSWORD=postgres
+curl -LO https://git.io/get_helm.sh
+chmod 700 get_helm.sh && ./get_helm.sh
+kubectl create serviceaccount --namespace kube-system tiller
+kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-role-admin --serviceaccount=kube-system:tiller
+history
+helm init --service-account tiller --upgrade
+helm install stable/nginx-ingress --name my-nginx --set rbac.create=true
+kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+helm install stable/nginx-ingress --name my-nginx --set rbac.create=true
+history
