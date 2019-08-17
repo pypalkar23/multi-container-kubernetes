@@ -6,9 +6,9 @@ docker push pypalkar23/docker-multi-client:latest
 docker push pypalkar23/docker-multi-server:latest
 docker push pypalkar23/docker-multi-worker:latest
 
-docker push pypalkar23/docker-multi-client:$GIT_SHA 
-docker push pypalkar23/docker-multi-server:$GIT_SHA 
-docker push pypalkar23/docker-multi-worker:$GIT_SHA 
+docker push pypalkar23/docker-multi-client:$GIT_SHA
+docker push pypalkar23/docker-multi-server:$GIT_SHA
+docker push pypalkar23/docker-multi-worker:$GIT_SHA
 
 kubectl apply -f k8s
 kubectl set image deployments/server-deployment server=pypalkar23/docker-multi-server:$GIT_SHA
